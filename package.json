@@ -23,7 +23,8 @@
     "ejs": "^3.1.6",
     "express": "^4.17.2",
     "jquery": "^3.6.0",
-    "node": "^17.3.0"
+    "node": "^17.3.0",
+    "popper.js": "^1.16.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
