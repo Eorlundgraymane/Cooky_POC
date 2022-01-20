@@ -1,9 +1,21 @@
 <%- include('../includes/head.ejs') %>
 </head>
-<body>    
-    <h1>You've hit User Home Page</h1>   
-    <button class="btn btn-outline-dark">Bootstrap is On</button>
-    <script>
-        $(document).ready(()=>{alert("JQuery Ready!");});
-    </script>
+<body>   
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">                
+                <h1 class="display-4"><b>Cooky</b></h1>                          
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-6">                            
+                            <button id="btnOne" type="button" class="btn btn-outline-dark form-control homeButtons">Create Recipe</button>
+                        </div>
+                        <div class="col-sm-6">                            
+                            <button id="btnTwo" type="button" class="btn btn-outline-dark form-control homeButtons">Follow Recipe</button>  
+                        </div>
+                    </div>                                                                      
+                </div>                     
+            </div>            
+        </div>
+    </div>                     
 <%- include('../includes/footer.ejs') %>
