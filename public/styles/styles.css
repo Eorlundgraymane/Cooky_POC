@@ -5,4 +5,10 @@
     .homeButtons{
         height: 20vh;
     }
-  }
+}
+.clickable-row{
+    cursor: pointer;
+}
+.clickable-row:hover{
+    background-color:lemonchiffon;
+}

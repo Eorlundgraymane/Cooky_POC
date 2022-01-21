@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">                
-                <h1 class="display-4"><b>Cooky</b></h1>                                          
+                <h1 class="display-6"><b>Cooky</b></h1>                                          
                 <div class="row">
                     <div class="col-sm-12">
                         <h1 class="display-4">Recipe Follower</h1>
@@ -20,18 +20,16 @@
                             </thead>
                             <tbody>
                                 <% for(let recipe of recipes) {%>
-                                    <tr>
-                                        <a href="/">
-                                            <td>
-                                                <%=recipe.id%>
-                                            </td>
-                                            <td>
-                                                <%=recipe.title%>
-                                            </td>
-                                            <td>
-                                                <%=recipe.description%>
-                                            </td>
-                                        </a>
+                                    <tr class='clickable-row'  onclick="window.location = '/recipe/follow/<%= recipe.id%>'">                                        
+                                        <td>
+                                            <%=recipe.id%>
+                                        </td>
+                                        <td>
+                                            <%=recipe.title%>
+                                        </td>
+                                        <td>
+                                            <%=recipe.description%>
+                                        </td>                                        
                                     </tr>                                    
                                 <%}%>
                             </tbody>
@@ -40,7 +38,7 @@
                 </div>              
                 <div class="row">
                     <div class="col-sm-12">
-                        <a href="/"><h1 class="display-4">Home</h1></a>
+                        <a href="/"><h1 class="display-6">Home</h1></a>
                     </div>                        
                 </div>                                                                                                        
             </div>            

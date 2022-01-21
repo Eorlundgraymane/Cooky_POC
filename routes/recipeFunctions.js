@@ -7,6 +7,7 @@ const createController = require("../controllers/createController");
 const followController = require("../controllers/followController");
 
 router.get("/recipe/create",createController.getIndex);
+router.get("/recipe/follow/:id",followController.getRecipe);
 router.get("/recipe/follow",followController.getIndex);
 
 //Export Routes

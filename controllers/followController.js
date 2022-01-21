@@ -13,3 +13,18 @@ exports.getIndex = (req,res,next) => {
         console.log(err);
     });
 };
+
+exports.getRecipe = (req,res,next) => {
+    const recipeId = req.params.id;
+    Recipe.findByPk(recipeId)
+    .then((recipe) => {
+        res.render("follow/content",{
+            recipe: recipe,
+            path: "recipe/follow/content",
+            pageTitle: recipe.title        
+        });
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+};
