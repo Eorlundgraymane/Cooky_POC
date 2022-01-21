@@ -3,19 +3,21 @@ const Sequelize =  require('sequelize');
 const sequelize = require('../util/database');
 
 const RecipeIngredient = sequelize.define('recipeingredient',{
-    id: {
+    id:{
         type:Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
-    title: {
-        type: Sequelize.STRING,
-        allowNull: false
+    recipeId: {
+        type:Sequelize.INTEGER,        
+        allowNull: false,
+        primaryKey: true
     },
-    description: {
-        type: Sequelize.STRING,
-        allowNull: false
+    ingredientId: {
+        type:Sequelize.INTEGER,        
+        allowNull: false,
+        primaryKey: true
     }
 });
 

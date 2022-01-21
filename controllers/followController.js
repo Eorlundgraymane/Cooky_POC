@@ -1,7 +1,15 @@
+const Recipe = require("../models/recipe");
+
 exports.getIndex = (req,res,next) => {
-    console.log("Home Controller Get Index");
-    res.render("follow/index",{
-        path: "follow",
-        pageTitle: "Cooky Maker"        
+    Recipe.findAll()
+    .then((recipes) => {
+        res.render("follow/index",{
+            recipes: recipes,
+            path: "recipe/follow",
+            pageTitle: "Cooky Maker"        
+        });
+    })
+    .catch((err) => {
+        console.log(err);
     });
 };

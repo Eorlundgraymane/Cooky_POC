@@ -5,11 +5,11 @@ const express = require("express");
 //Path
 const path = require("path");
 
-// //SQL Inits
-// const sequelize = require("./util/database");
-// const Ingredient = require("./models/ingredient");
-// const Recipe = require("./models/recipe");
-// const RecipeIngredient = require("./models/recipeIngredient");
+//SQL Inits
+const sequelize = require("./util/database");
+const Ingredient = require("./models/ingredient");
+const Recipe = require("./models/recipe");
+const RecipeIngredient = require("./models/recipeIngredient");
 
 //Express App
 const app = express();
@@ -42,18 +42,46 @@ app.use(homeRoutes);
 app.use(errorRoutes);//Keep Error Routes LAST!
 
 //DB Relations
-// Recipe.hasMany(Ingredient);
-// Ingredient.belongsToMany(Recipe,{through : RecipeIngredient});
+Recipe.hasMany(Ingredient);
+Ingredient.belongsToMany(Recipe,{through : RecipeIngredient});
 
-// //Sync DB 
-// sequelize.sync().then(() => {
-//     //Server Listen
-//     app.listen(PORT,'0.0.0.0', () => {
-//         console.log(`Cooky app is running on port ${ PORT }`);
-//     });
-// });
+//Sync DB 
+sequelize.sync().then((result) => {
+    return Ingredient.findByPk(1);
+}).then((ingredient) => {
+    if(!ingredient){
+        return Ingredient.create({
+            title:"Potato",
+            description:"Bland versatile root vegetable"
+        });      
+    }
+    return Promise.resolve(ingredient);
+}).then(() => {
+    return Recipe.findByPk(1);
+}).then((recipe) => {
+    if(!recipe){
+        return Recipe.create({
+            title:"Boiled Potato",
+            description:"Just boil the potato in a pot of boiling water and salt"
+        });
+    }
+    return Promise.resolve(recipe);
+}).then((recipe)=>{
+    RecipeIngredient.findByPk(1);
+}).then((recipeIngredient) => {
+       if(!recipeIngredient){
+           return RecipeIngredient.create({
+               recipeId:1,
+               ingredientId:1
+           });
+       } 
+       return Promise.resolve(recipeIngredient);
 
-app.listen(PORT,'0.0.0.0', () => {
-    console.log(`Cooky app is running on port ${ PORT }`);
+}).then((recipeIngredient) => {
+    //Server Listen
+    app.listen(PORT,'0.0.0.0', () => {
+        console.log(`Cooky app is running on port ${ PORT }`);
+    });
 });
+
 
