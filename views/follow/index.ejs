@@ -21,15 +21,17 @@
                             <tbody>
                                 <% for(let recipe of recipes) {%>
                                     <tr>
-                                        <td>
-                                            <%=recipe.id%>
-                                        </td>
-                                        <td>
-                                            <%=recipe.title%>
-                                        </td>
-                                        <td>
-                                            <%=recipe.description%>
-                                        </td>
+                                        <a href="/">
+                                            <td>
+                                                <%=recipe.id%>
+                                            </td>
+                                            <td>
+                                                <%=recipe.title%>
+                                            </td>
+                                            <td>
+                                                <%=recipe.description%>
+                                            </td>
+                                        </a>
                                     </tr>                                    
                                 <%}%>
                             </tbody>

@@ -42,13 +42,15 @@ app.use(homeRoutes);
 app.use(errorRoutes);//Keep Error Routes LAST!
 
 //DB Relations
-Recipe.hasMany(Ingredient);
 Ingredient.belongsToMany(Recipe,{through : RecipeIngredient});
 
 //Sync DB 
-sequelize.sync().then((result) => {
+sequelize
+.sync()
+.then((result) => {
     return Ingredient.findByPk(1);
 }).then((ingredient) => {
+    console.log(ingredient);
     if(!ingredient){
         return Ingredient.create({
             title:"Potato",
@@ -59,6 +61,7 @@ sequelize.sync().then((result) => {
 }).then(() => {
     return Recipe.findByPk(1);
 }).then((recipe) => {
+    console.log(recipe);
     if(!recipe){
         return Recipe.create({
             title:"Boiled Potato",
@@ -66,9 +69,10 @@ sequelize.sync().then((result) => {
         });
     }
     return Promise.resolve(recipe);
-}).then((recipe)=>{
-    RecipeIngredient.findByPk(1);
+}).then(()=>{
+    return RecipeIngredient.findByPk(1);
 }).then((recipeIngredient) => {
+    console.log(recipeIngredient);
        if(!recipeIngredient){
            return RecipeIngredient.create({
                recipeId:1,
