@@ -12,6 +12,27 @@
                 </div>              
                 <div class="row">
                     <div class="col-sm-12">
+                        <form action="/recipe/create" class="form-group"  method="post">
+                            <label for="recipeTitleText">Title</label>
+                            <input class="form-control" type="text" name="recipeTitleText" id="recipeTitleText">
+                            <label for="recipeDescription">Description</label>
+                            <input class="form-control" type="text" name="recipeDescription" id="recipeDescription">
+                            <label for="ingredientList">Ingredients</label>
+                            <input class="form-control" type="text" name="ingredientList" readonly id="ingredientList">                                                                                  
+                            <button onclick="addIngredient()" type="button" class="btn btn-dark form-control"><span class="bi bi-plus"></span></button>
+                            <br><br>
+                            <button type="submit" class="btn btn-success form-control">Create Recipe</button>
+                        </form>
+                        <label for="ing">Ingredients</label>
+                        <select class="form-select" name="ingredients" id="ing">
+                            <% for(let ing of ingredients){%>
+                                <option selected value="<%=ing.title%>"><%=ing.title%></option>
+                            <%}%>
+                        </select> 
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
                         <a href="/"><h1 class="display-4">Home</h1></a>
                     </div>                        
                 </div>                                                                                                        

@@ -16,7 +16,8 @@
                             <thead>
                                 <th>ID</th>
                                 <th>Title</th> 
-                                <th>Description</th>                               
+                                <th>Description</th> 
+                                <th>Ingredients</th>                               
                             </thead>
                             <tbody>
                                 <% for(let recipe of recipes) {%>
@@ -29,7 +30,10 @@
                                         </td>
                                         <td>
                                             <%=recipe.description%>
-                                        </td>                                        
+                                        </td> 
+                                        <td>
+                                            <%=recipe.ingredients%>
+                                        </td>                                  
                                     </tr>                                    
                                 <%}%>
                             </tbody>
