@@ -1,9 +1,14 @@
-.homeButtons{
-    height: 40vh;
+html,body{    
+    height: 100%;
 }
 @media only screen and (max-width: 600px) {
     .homeButtons{
-        height: 20vh;
+        height: 20vh;        
+    }   
+}
+@media only screen and (min-width: 601px) {
+    .homeButtons{        
+        margin-left: 15%;
     }
 }
 .clickable-row{
@@ -11,4 +16,23 @@
 }
 .clickable-row:hover{
     background-color:lemonchiffon;
+}
+.voffset  { margin-top: 2px; }
+.voffset1 { margin-top: 5px; }
+.voffset2 { margin-top: 10px; }
+.voffset3 { margin-top: 15px; }
+.voffset4 { margin-top: 30px; }
+.voffset5 { margin-top: 40px; }
+.voffset6 { margin-top: 60px; }
+.voffset7 { margin-top: 80px; }
+.voffset8 { margin-top: 100px; }
+.voffset9 { margin-top: 150px; }
+
+#recipeForm{
+    width:50%;
+    margin-left:25%;
+}
+#mainFooter{
+    position: fixed;
+    bottom: 0;
 }

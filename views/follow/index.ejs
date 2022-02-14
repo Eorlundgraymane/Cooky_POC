@@ -1,51 +1,44 @@
 <%- include('../includes/head.ejs') %>
 </head>
 <body>   
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">                
-                <h1 class="display-6"><b>Cooky</b></h1>                                          
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h1 class="display-4">Recipe Follower</h1>
-                    </div>                        
-                </div>              
-                <div class="row">
-                    <div class="col-sm-12">
-                        <table class="table">
-                            <thead>
-                                <th>ID</th>
-                                <th>Title</th> 
-                                <th>Description</th> 
-                                <th>Ingredients</th>                               
-                            </thead>
-                            <tbody>
-                                <% for(let recipe of recipes) {%>
-                                    <tr class='clickable-row'  onclick="window.location = '/recipe/follow/<%= recipe.id%>'">                                        
-                                        <td>
-                                            <%=recipe.id%>
-                                        </td>
-                                        <td>
-                                            <%=recipe.title%>
-                                        </td>
-                                        <td>
-                                            <%=recipe.description%>
-                                        </td> 
-                                        <td>
-                                            <%=recipe.ingredients%>
-                                        </td>                                  
-                                    </tr>                                    
-                                <%}%>
-                            </tbody>
-                        </table>
-                    </div>                        
-                </div>              
-                <div class="row">
-                    <div class="col-sm-12">
-                        <a href="/"><h1 class="display-6">Home</h1></a>
-                    </div>                        
-                </div>                                                                                                        
+    <div class="container-fluid">
+        <div class="row sticky-top">
+            <div class="col-sm-6 border-1 border-dark border-bottom">                
+                <h1 class="display-4" style="float: left;"><b>Cooky</b></h1>                                                                                                                                                                                            
             </div>            
-        </div>
+            <div class="col-sm-6">
+                <h1 class="display-4" style="float: right;">Recipe Follower</h1>
+            </div>           
+        </div> 
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table">
+                    <thead>
+                        <th>ID</th>
+                        <th>Title</th> 
+                        <th>Description</th> 
+                        <th>Ingredients</th>                               
+                    </thead>
+                    <tbody>
+                        <% for(let recipe of recipes) {%>
+                            <tr class='clickable-row'  onclick="window.location = '/recipe/follow/<%= recipe.id%>'">                                        
+                                <td>
+                                    <%=recipe.id%>
+                                </td>
+                                <td>
+                                    <%=recipe.title%>
+                                </td>
+                                <td>
+                                    <%=recipe.description%>
+                                </td> 
+                                <td>
+                                    <%=recipe.ingredients%>
+                                </td>                                  
+                            </tr>                                    
+                        <%}%>
+                    </tbody>
+                </table>
+            </div>                        
+        </div>                 
     </div>                     
 <%- include('../includes/footer.ejs') %>
