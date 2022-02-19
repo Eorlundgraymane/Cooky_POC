@@ -14,11 +14,11 @@
             <div class="col-sm-6">
                 <form id="recipeForm" action="/recipe/create" class="form-group"  method="post">
                     <label for="recipeTitleText">Title</label>
-                    <input class="form-control" type="text" name="recipeTitleText" id="recipeTitleText">
+                    <input required class="form-control" type="text" name="recipeTitleText" id="recipeTitleText">
                     <label for="recipeDescription">Description</label>
-                    <input class="form-control" type="text" name="recipeDescription" id="recipeDescription">
+                    <input required class="form-control" type="text" name="recipeDescription" id="recipeDescription">
                     <label for="ingredientList">Ingredients</label>
-                    <input class="form-control" type="text" name="ingredientList" readonly id="ingredientList">                                
+                    <input required class="form-control" type="text" name="ingredientList" readonly id="ingredientList">                                
                     <label for="ing">Ingredients</label>
                     <div class="form-control" style="display: inline-flex;">
                         <div class="col-sm-8 p-2">
@@ -31,7 +31,9 @@
                         <div class="col-sm-4 p-2">
                             <button onclick="addIngredient()" type="button" class="btn btn-dark form-control"><span class="bi bi-plus"></span></button>                                                                       
                         </div>    
-                    </div>                    
+                    </div>   
+                    <label for="newIngredient">Add New Ingredient</label>
+                    <input class="form-control" type="text"  name = "newIngredient" onkeyup="disableIngList()" id = "newIngredient">                 
                     <br><br>
                     <button type="submit" class="btn btn-success form-control">Create Recipe</button>
                 </form>

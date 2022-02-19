@@ -11,11 +11,33 @@ function setClickers(){
     });
 } 
 function addIngredient(){    
-    var ingList = $("#ingredientList").val();
-    var newIng = $("#ing").val();
-    if(ingList !== "")
-    {
-        ingList += ",";
+    var ingList = $("#ingredientList");
+    var ingDropDown = $("#ing");
+    if(!ingDropDown.attr("disabled")){
+        var newIng = $("#ing").val();
+        if(ingList.val() !== "")
+        {
+            ingList.val(ingList.val() + ",");
+        }
+        ingList.val(ingList.val()+newIng);
+    }    
+    else{
+        if(ingList.val() !== "")
+        {
+            ingList.val(ingList.val() + ",");
+        }
+        var newIng = $("#newIngredient").val();
+        ingList.val(ingList.val()+newIng);
     }
-    $("#ingredientList").val(ingList+newIng);
+    $("#newIngredient").val("");
+    ingDropDown.removeAttr("disabled");
+}
+function disableIngList(){
+    var newIng = $("#newIngredient");
+    if(! /^\s*$/.test(newIng.val())){
+        $("#ing").attr("disabled","disabled");   
+    }    
+    else{
+        $("#ing").removeAttr("disabled");
+    }
 }
